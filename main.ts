@@ -23,11 +23,6 @@ const env = await load();
 
 const MONGO_URL = env.MONGO_URL || Deno.env.get("MONGO_URL");
 
-if (!MONGO_URL) {
-  console.log("No mongo URL found");
-  Deno.exit(1);
-}
-
 await mongoose.connect(MONGO_URL);
 const app = express();
 app.use(express.json());
